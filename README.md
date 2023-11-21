@@ -1,2 +1,2 @@
 # novusbank
- digital banking website
+ digital banking website using angular and typescript
