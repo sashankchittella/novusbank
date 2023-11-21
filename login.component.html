@@ -1,0 +1,24 @@
+<body>
+    <div class="hero">
+    <div class="form-box" id="myForm">
+      <div class="button-box">
+        <div id="btn"></div>
+        <button type="button" class="toggle-btn" >Log In</button>
+      </div>
+  
+      <form id="login" class="input-group" (ngSubmit)="onLogin()">
+        <label for="accountNumber">Account Number:</label>
+        <input type="number" [(ngModel)]="accountNumber" class="input-field" placeholder="Type here" required maxlength="5">
+        <label for="email">Email:</label>
+        <input type="email" [(ngModel)]="email" class="input-field" placeholder="example@gmail.com" required>
+        <label for="password">Enter password:</label>
+        <input type="password" [(ngModel)]="password" class="input-field" placeholder="Type here" required maxlength="12">
+        <input type="checkbox" class="check-box"> <span>Remember password</span>
+        <div *ngIf="errorMessage" class="error-message" style="color: red;">{{ errorMessage }}</div>
+        <button type="submit"  class="submit-btn">Login</button>
+      </form>
+       
+    </div>
+  </div>
+</body>
+  

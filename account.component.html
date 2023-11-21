@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="left">
+      <h1 id="welcome">Hi {{ user.name }}, welcome back!</h1>
+      <div>
+        <h2>Transfer Money</h2>
+        <div class="blocks">
+          <label for="recipient">Recipient Account Number:</label><br>
+          <input type="text" id="recipient" placeholder="Recipient Account Number" [(ngModel)]="recipientAccountNumber"><br><br>
+        </div>
+        <div class="blocks">
+          <label for="amount">Amount:</label><br>
+          <input type="number" id="amount" placeholder="Amount" [(ngModel)]="transferAmount"><br><br>
+        </div>
+        <div class="blocks">
+          <label for="note">Note:</label><br>
+          <input type="text" id="note" [(ngModel)]="transferNote"><br><br>
+        </div>
+  
+        <button id="transfer" (click)="transferMoney()">Transfer</button>
+        <p id="error" class="error">{{ errorMessage }}</p>
+      </div>
+      <br>
+      <div class="card">
+        <h2>Onyx card</h2>
+        <p>Card Number: {{ user.cardNumber }}</p>
+        <p>Expiry Date: {{ user.cardExpiry }}</p>
+        <p>CVV: {{ user.cardCVV }}</p>
+      </div>
+      <br>
+      <h3>Balance: </h3>
+      <p id="balance">Rs. {{ user.balance | currency }}</p>
+      <br><br>
+      <p>Apply for loans</p>
+      <button id="loans-button" (click)="applyForLoan()">Loans</button>
+    </div>
+    <div class="right">
+      <h2>Transaction History:</h2>
+      <table id="transactionHistory">
+        <tr>
+          <th>S.No</th>
+          <th>Time</th>
+          <th>To Account Number</th>
+          <th>Note</th>
+          <th>Amount Transfer</th>
+        </tr>
+        <tr *ngFor="let transaction of transactionHistory; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ transaction.time }}</td>
+          <td>{{ transaction.toAccount }}</td>
+          <td>{{ transaction.note }}</td>
+          <td [style.color]="transaction.amountColor">{{ transaction.amount }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  
